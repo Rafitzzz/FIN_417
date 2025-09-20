@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex build/main"] 0 "build/main.aux" "build/main.bbl" "build/main" 1758303502.87712 0
+["bibtex build/main"] 0 "build/main.aux" "build/main.bbl" "build/main" 1758409311.0817 0
   "/usr/share/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1755987285 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
   "biblio.bib" 0 -1 0 ""
   "build/main.aux" 0 -1 0 "pdflatex"
@@ -7,7 +7,7 @@
   "build/main.bbl"
   "build/main.blg"
   (rewritten before read)
-["pdflatex"] 1758303502.48677 "/home/rafiki/Documents/FIN_417/Rafikis_Notes_FIN417/main.tex" "build/main.pdf" "main" 1758303502.87725 0
+["pdflatex"] 1758409310.50512 "/home/rafiki/Documents/FIN_417/Rafikis_Notes_FIN417/main.tex" "build/main.pdf" "main" 1758409311.08184 0
   "/home/rafiki/Documents/FIN_417/Rafikis_Notes_FIN417/main.tex" 1758301430.80204 2680 b730fdea02b8c363539c46c5f7e7c152 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1755987285 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1755987285 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -22,6 +22,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1755987285 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1755987285 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1755987285 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm" 1755987285 1532 9162035f4e7176612125649e348e2195 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm" 1755987285 1300 63a6111ee6274895728663cf4b4e7e81 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1755987285 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1755987285 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -40,10 +41,17 @@
   "/usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1755987285 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1755987285 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1755987285 32080 340ef9bf63678554ee606688e7b5339d ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb" 1755987285 36554 b67dc2cfa451409e100b3fcf5f506509 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1755987285 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1755987285 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1755987285 37912 77d683123f92148345f3fc36a38d9ab1 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1755987285 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1755987285 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1755987285 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1755987285 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1755987285 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1755987285 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1755987285 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1755987285 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1755987285 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1755987285 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -192,13 +200,15 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1755987285 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1757870295 5311557 9da84c45f5b388655502706482323571 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1757870255 2008254 665957eef637432e26bcf86e3ee5bc70 ""
-  "build/main.aux" 1758303502.78905 1285 ced47995dc8aa16d6a681c687a58b35f "pdflatex"
+  "build/main.aux" 1758409310.98455 4083 5130e8f2e7be48a1c1fb6328aa853cd3 "pdflatex"
   "build/main.bbl" 0 -1 0 "bibtex build/main"
-  "build/main.out" 1758303502.78983 547 2249ab5b61846286c1256bfcd84d3b5e "pdflatex"
-  "build/main.toc" 1758303502.79013 284 8c984390318d566128c348d4a547b05f "pdflatex"
+  "build/main.out" 1758409310.98455 336 8c5595addb282d97ade7f567cd520b58 "pdflatex"
+  "build/main.toc" 1758409310.98516 1207 6f74637a45564df1945e9f861e32d4dd "pdflatex"
+  "figures/linear_approx_lossdistribution.png" 1758407891.93846 73057 b69e3d96f284b3d88b9458796124d113 ""
+  "figures/pnl_v_l_distributions.png" 1758406995.47663 143732 d407575cf79dfad294ffa65a6cd4eb1c ""
   "main.tex" 1758301430.80204 2680 b730fdea02b8c363539c46c5f7e7c152 ""
-  "sections/part1.tex" 1758303502.35067 3937 d6d1ce442afd5e7a6ae030c911651e2f ""
-  "sections/part2.tex" 1758299640.55144 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "sections/part1.tex" 1758399078.23903 19273 c224328e711846ce87dcff7ba640df41 ""
+  "sections/part2.tex" 1758409309.78823 3257 aac3c5b27f3108efb215f41ff524fada ""
   (generated)
   "build/main.aux"
   "build/main.log"

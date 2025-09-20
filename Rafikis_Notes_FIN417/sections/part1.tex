@@ -1,6 +1,6 @@
 We first start by exploring some basic notions of risk, and mainly define all of the financial jargon that is used throughout the course.
 
-\subsection{Financial risk and regulation}
+\subsection*{Financial risk and regulation}
 There are a lot of definitions of risk, but as for many things in life, no sentence can capture the full essence of a concept (especially in finance since all of the theory is constructed by phony, try-harding beaurocrats i.e. beaurocs).
 As such, we will just list some of the most common definitions of risk:
 
@@ -26,8 +26,13 @@ As you can see, pure jargon and buzzwords are used to define risk, which is not 
     Risk is the chance of financial loss due to uncertainty or `randomness' (but what is randomness anyway? don't even ask cuz' I get erected).
 \end{definition}
 
-So, given this defintion, we may model and measure risk using probabilistic (i.g. random variables, distributions) and statistical (i.g. data) tools, which is what we will do in this course. Mainly, we may thank daddy Kolmogorov for developing
-a reliable mathematical framework (using probabilistic axioms) to think about risk in a rigorous manner. Since this course is heavily focused on finance, we will mainly be concerned with financial risk, which, yoy guessed it, has a shit ton of
+So, given this defintion, we may model and measure risk using probabilistic (i.g. random variables, distributions) and statistical (i.g. data) tools, which is what we will do in this course. 
+
+\begin{definition}
+    A \textit{financial derivative} is a contract whose payoff is a function $f$ of some underlying random variable $U$ (e.g., stock price at time $T$). The whole industry is about analyzing, pricing, and hedging such contracts under uncertainty.
+\end{definition}
+
+Mainly, we may thank daddy Kolmogorov for developing a reliable mathematical framework (using probabilistic axioms) to think about risk in a rigorous manner. Since this course is heavily focused on finance, we will mainly be concerned with financial risk, which, yoy guessed it, has a shit ton of
 variable definitions (each focusing on diferent aspects of finance).
 
 \begin{remark}
@@ -49,13 +54,188 @@ Here are some of the main types of financial risk:
 
 \vspace{0.2cm}
 
-Note that financial firms are not passive (i.e. defensive) towards risk, they confront it in order to gain return (risk tha biscuit!). Thus, Banks and insurers are like risk function engineers. They take raw random variables (risky outcomes), apply transformations $f(X)$,
+Note that financial firms are not passive (i.e. defensive) towards risk, they confront it in order to gain return (risk tha biscuit!). Thus, banks and insurers are like risk function engineers. They take raw random variables (risky outcomes), apply transformations $f(X)$,
  and then allocate these transformed versions to those most willing to hold them. That process is what keeps financial markets running smoothly.
 
- \begin{definition}
-    A \textit{financial derivative} is a contract whose payoff is a function $f$ of some underlying random variable $U$ (e.g., stock price at time $T$). The whole industry is about analyzing, pricing, and hedging such contracts under uncertainty.
- \end{definition}
+ \begin{remark}
+    If a bank's portfolio value over a certain holding period is represented by the random variable $X$, then assessing the risk of this portfolio depends on finding the
+    distribution function $F_X (x) = P(X \leq x)$. If $X = \sum_{k=1}^{n}w_kX_k$, where each $X_i$ represents a separate investment, then we need 
+    a joint model for $(X_1,\ldots, X_n)$.
+ \end{remark}
 
- \vspace{0.2cm}
+\vspace{0.2cm}
 
- 
+So, we might ask the question \textbf{whada fuck is involved whilst managing risks?} Well, here are some of those things to think about:
+\begin{itemize}
+    \item Determine an emergency ammount of money to absorb losses.
+    \begin{enumerate}
+        \item for regulatory purposes (satisfy regulators) e.g. Bassel 3.
+        \item economic capital purposes
+    \end{enumerate}
+    \item Making sure portfolios are well diversified.
+    \item Optimizing portfolios.
+\end{itemize}
+
+% Tone and style aligned with Rafiki’s Notes (FIN 417)  % :contentReference[oaicite:0]{index=0}
+\subsection*{History of Risk Management \& What ``Risk Measurement'' Really Means}
+
+\paragraph{Ancient roots}
+Buying an \emph{option} (a contract that gives you the right, not the obligation, to buy/sell an asset at a preset price) is a way to \emph{cap} your downside: you pay a fee (the premium) so that bad price moves hurt less.\;With that lens, risk management shows up as early as \(\sim\)1800\,BC: fun fact, first known person to do this was Thales de Miletus while buying an option to rent all of the olive presses during a period in which he suspected olives would overproduce; and they did! Thales made a good fortune (cite veritasium's vlack-scholes video for this).
+
+\paragraph{Modern leap: Markowitz and mean--variance (\(\sim\)1952).}
+Before the 1950s, many investors chased \emph{expected return} only. Harry Markowitz formalized the tradeoff between \emph{mean} (expected return) and \emph{variance} (volatility, a measure of dispersion). A portfolio is \emph{mean--variance efficient} if, among all portfolios with the same expected return, it has the smallest variance (or, equivalently, for a fixed variance it has the largest expected return). The set of such portfolios traces the \emph{efficient frontier}. This is the birth of quantitative portfolio construction (and yes, \emph{gracias, daddy Kolmogorov}, for the probability axioms that make these expectations/variances a real thing).
+
+\subsection*{Approaches to Measuring Portfolio Risk (and what each really computes)}
+
+Let \(V\) be portfolio value that depends on underlying \emph{risk factors} (e.g., equity prices, rates, FX). Risk measurement is about quantifying how much \(V\) might drop over a horizon. Four standard approaches:
+
+\begin{enumerate}
+  \item \textbf{Notional-amount approach (book value sum).}\\
+  Define risk as the (weighted) sum of \emph{notional} amounts (face values) of positions. \emph{Pros:} dead simple. \emph{Cons:} ignores price dynamics, hedges, convexity, and nonlinearity (e.g., options). Treats \$100 in equity the same as \$100 in a deep out-of-the-money option---not great.
+
+  \item \textbf{Factor-sensitivity measures (``how twitchy am I?'').}\\
+  Compute the change in \(V\) for a small, prescribed shock to a chosen factor. In practice this means \emph{Greeks} for options (Delta, Vega, Rho) or fixed-income \emph{duration/convexity} for interest-rate risk. Formally, if \(V=V(F)\) and \(F\) moves by \(\Delta F\), a first-order estimate is \(\Delta V \approx \frac{\partial V}{\partial F}\Delta F\). Good for quick “what-if”s; limited for large, nonlinear moves.
+
+  \item \textbf{Scenario-based risk (stress and narrative shocks).}\\
+  Specify plausible or extreme \emph{scenarios} (joint moves in several factors), reprice the portfolio under each, and record losses. The risk statistic might be the \emph{maximum} loss across scenarios or the loss under a specific stress (e.g., “rates +200 bps, equities $20\%$, credit spreads +150 bps”). Useful when history is thin or tail events matter.
+
+  \item \textbf{Loss-distribution-based measures (statistical view).}\\
+  Model the \emph{distribution} of the portfolio loss \(L\) over a horizon, then extract summary numbers. Two classics:
+  \begin{itemize}
+    \item \textbf{Value-at-Risk (VaR) at level \(\alpha\)}: the smallest \(\ell\) such that \(\mathbb{P}(L\le \ell)\ge \alpha\). “With \(100\alpha\%\) confidence, losses won’t exceed VaR.”
+    \item \textbf{Expected Shortfall (ES) at \(\alpha\)}: the conditional mean loss given that you breach VaR. Captures the \emph{average} severity of tail losses beyond VaR.
+  \end{itemize}
+  These require either (i) a parametric model for returns, (ii) historical resampling, or (iii) full revaluation Monte Carlo.
+\end{enumerate}
+
+\subsection*{What Risk Measures are \emph{Used} For (and the regulatory lens)}
+
+\paragraph{(1) Determining risk capital (``the cushion'').}
+A \emph{risk measure} tells you how much capital you need to set aside as a buffer against \emph{unexpected} losses to satisfy a regulator. This is the \emph{regulatory capital} idea: hold enough equity so a bad-but-plausible shock doesn’t sink the firm.
+
+\paragraph{(2) Management tool (limits and incentives).}
+Internally, desks get \emph{limits} based on risk measures (e.g., notional limits, VaR limits). Breaches trigger escalations, hedges, or deleveraging. This aligns day-to-day risk-taking with the firm’s appetite.
+
+\paragraph{(3) Pricing insurance risk (reserve vs premium risk).}
+For (re)insurers, total \emph{insurance risk} splits into:
+\begin{itemize}
+  \item \textbf{Reserve risk:} uncertainty in how \emph{past} underwritten policies will develop (IBNR, claim severity inflation, legal lags).
+  \item \textbf{Premium risk:} uncertainty in \emph{future} business to be written (volume, pricing adequacy, catastrophe exposure).
+\end{itemize}
+
+\paragraph{Regulatory view (acceptability via capital add-ons).}
+Abstractly, let \(L\) be future loss. A regulator defines an \emph{acceptance set} \( \mathcal{A}\) (positions considered safe). A \emph{risk measure} \(\rho(L)\) is the \emph{minimal cash} you must add so that the position becomes acceptable: \(L - \rho(L) \in \mathcal{A}\). In plainer words: \(\rho(L)\) is the capital add-on that makes the position pass the test.
+
+\subsection*{Historical Shocks That Drove Regulation (and the risk lessons)}
+
+\begin{itemize}
+  \item \textbf{1970s oil crises.} Energy prices tanked due to geopolitical supply shocks. Lesson: commodity price risk can be massive and persistent; need stress testing and liquidity buffers.
+  \item \textbf{End of Bretton Woods (early 1970s).} Transition from fixed to floating FX regimes made currency risk \emph{volatile}. Lesson: FX settlement, hedging, and margining infrastructure matter.
+  \item \textbf{Herstatt (1973).} A German bank failed mid-day; counterparties delivered one currency but did not receive the other due to time-zone mismatches. This \emph{settlement risk} is still nicknamed \emph{Herstatt risk}. Lesson: payment-versus-payment (PvP) mechanisms and intraday credit controls are crucial.
+  \item \textbf{1987 U.S. stock crash (``Black Monday'').} A ~20\% one-day plunge; portfolio \emph{insurance} strategies (dynamic hedging informed by options logic) amplified selling pressure. Lesson: procyclical hedging and liquidity spirals must be modeled, not assumed away.
+  \item \textbf{Barings (1995).} Unauthorized derivatives bets by Nick Leeson blew up the bank (\$1.4bn loss). Lesson: model risk is not the only risk—\emph{operational risk} (controls, limits, segregation of duties) is vital.
+  \item \textbf{LTCM (1998).} Highly leveraged convergence trades unraveled; systemically risky unwind required a \$3.5bn private bailout. Lesson: correlation can jump, leverage bites, and “rare” events cluster.
+\end{itemize}
+
+\subsection*{Connecting back to the toolkit}
+Each approach above exists because different portfolios, data regimes, and decision horizons call for different diagnostics. Notional is rough but fast; factor sensitivities give local insight; scenarios explore narratives and tails; full loss-distribution methods provide \emph{quantiles} and \emph{tail means} that map cleanly into capital and limits. In practice, firms use them \emph{together}: quick sensitivities for intraday steering, scenarios for governance, and distribution-based numbers for capital.
+
+\subsection*{Role of regulators}
+In order to protect us mortals that are legaly responsable for a debt or an obligation i.e. liability holders, financial institutions have been \textit{nerfed} such that they have to meet certain
+\textbf{regulatory frameworks}. The \textbf{main goal of regulation} is to ensure that financial institutions hold suifficient \textbf{capital} to remain solvent i.e. to have enough assets that exceed their current liabilities. Some of the regulatory frameworks introduced in the lectures include:
+
+\begin{itemize}
+    \item Basel (now Basel III/IV): Banking system.
+    \item Solvency II: Insurance companies within EU.
+    \item Swiss Solvency Test: Insurance companies in CH.
+\end{itemize}
+
+Basel Committee on Banking Supervision formed in 1974, under the Bank for International Settlements (BIS), due to the Herstatt incident (a big German bank that basically placed a big ass bet on the dircection of the us dollar which had high volatility at the time and lost). 
+
+\begin{remark}
+    The Basel Committee does not have legal force but it formulates standards/best practices/guidelines, the Basel Accords, in expectation that government authorities
+    will take steps to implement them.
+\end{remark}
+
+\paragraph{Basel I (1988).}
+\begin{itemize}
+  \item \textbf{Core idea:} banks must hold capital proportional to their \emph{risk-weighted assets} (RWA).
+  \item \textbf{Limitations:} too crude; little sensitivity to actual credit quality, off-balance-sheet derivatives, or market risk.
+\end{itemize}
+
+\paragraph{Basel II (2004).}
+\begin{itemize}
+  \item \textbf{Three pillars:}
+  \begin{enumerate}
+    \item \textbf{Minimum capital requirements:} refine RWA by introducing credit, market, and operational risk. Banks can use standardized formulas or (if approved) internal models (e.g., VaR for market risk).
+    \item \textbf{Supervisory review:} regulators review banks’ internal risk management, ensuring adequacy beyond formulas.
+    \item \textbf{Market discipline:} disclosure requirements so investors/markets can exert pressure.
+  \end{enumerate}
+  \item \textbf{Motivation:} make capital more risk-sensitive, reward better risk management.
+  \item \textbf{Criticism:} complexity, reliance on banks’ own models (which may underestimate tail risk).
+\end{itemize}
+
+\paragraph{Basel III (2010, post-2008 crisis).}
+\begin{itemize}
+  \item \textbf{Trigger:} the global financial crisis exposed undercapitalization, hidden leverage, and liquidity mismatches.
+  \item \textbf{Key enhancements:}
+  \begin{itemize}
+    \item \textbf{Higher and better-quality capital.} Stricter definition of Tier 1 (common equity) and higher minimum ratios.
+    \item \textbf{Capital buffers.} Extra cushions: 
+      \begin{itemize}
+        \item \emph{Capital conservation buffer} (to absorb losses in downturns).
+        \item \emph{Countercyclical buffer} (to lean against credit booms).
+      \end{itemize}
+    \item \textbf{Leverage ratio.} A simple non-risk-weighted cap: equity/total assets must exceed a threshold (prevents gaming of risk weights).
+    \item \textbf{Liquidity standards.} 
+      \begin{itemize}
+        \item \emph{Liquidity Coverage Ratio (LCR):} enough high-quality liquid assets to survive a 30-day stress.
+        \item \emph{Net Stable Funding Ratio (NSFR):} stable funding over a one-year horizon.
+      \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\paragraph{(Ongoing) Basel IV.}
+Not an official new accord but shorthand for final revisions to Basel III (e.g., standardized approaches, output floors for internal models). Goal: reduce variability of risk-weighted assets and improve comparability across banks.
+
+\paragraph{Takeaway.}
+The Basel Accords progressively tightened the link between measured risk and required capital/liquidity. Basel I was crude but pioneering; Basel II added sophistication (and complexity); Basel III reacted to crisis with higher, better capital and liquidity standards. The unifying theme: \emph{banks must carry buffers big enough to absorb shocks and keep the system safe}.
+
+\subsection*{Some challenges of Quantitative Risk Management (QRM)}
+\textbf{Extreme values} are a pain in the ass; they usually fuck up models whenever the normal distribution is assumed (and finance bros love to overuse normal distributions). 
+\textbf{Concentration of risks} is also a big challenge since modeling the dependence of several extreme outcomes is hard, even harder to model when will many risk factors will make
+\textit{furious} movements at the same time. 
+
+\vspace{0.2cm}
+
+Annother thig to consider is that of \textbf{scale} of a portfolio; they may sometimes be extremely large and a full calibration is essentially impossible;
+requires dimension reduction. Last but not least (amonst other), it is an \textbf{interdisciplinary field} and so, as technical people we sometimes have to deal with not so technical people (i.e. fucking beaurocs!). 
+
+\subsection*{What Quantitative Risk Management (QRM) Can Do \& What It Cannot}
+
+\paragraph{QRM can:}
+\begin{itemize}
+  \item \textbf{Identify and quantify risks.}  
+  QRM provides a toolkit of quantitative models and metrics (e.g., Value-at-Risk, Expected Shortfall, stress tests) to measure credit, market, liquidity, and operational risks in a consistent way.
+  
+  \item \textbf{Monitor risks and provide early warning.}  
+  By continuously tracking key indicators (volatility spikes, widening credit spreads, liquidity dry-ups), QRM can flag emerging stress and give institutions time to react before losses escalate.
+  
+  \item \textbf{Support portfolio optimization.}  
+  Techniques such as diversification and hedging are guided by quantitative models that aim to reduce concentrated exposures and balance risk–return trade-offs (think back to Markowitz and the efficient frontier).
+\end{itemize}
+
+\paragraph{QRM cannot:}
+\begin{itemize}
+  \item \textbf{Predict Black Swans.}  
+  Models are built on historical data and probabilistic assumptions. They fail when the world produces \emph{unprecedented} events (e.g., 9/11, Lehman’s collapse). Rare events outside model assumptions remain invisible until they strike.
+  
+  \item \textbf{Capture reputational risk.}  
+  The fallout from scandals, frauds, or loss of public trust (think Wells Fargo account scandal, Volkswagen emissions) cannot be meaningfully quantified by the usual statistical risk measures.
+  
+  \item \textbf{Substitute for governance.}  
+  Even perfect models do not fix weak governance structures, cultural blind spots, or reckless decision-making. A bank with poor oversight will blow up regardless of its VaR model.
+\end{itemize}
+
+\paragraph{Conclusion.}
+QRM is indispensable as a \emph{technical} discipline for measuring, monitoring, and steering risk. But its outputs must be embedded in a broader system of sound governance and a culture of risk awareness. Numbers alone are not enough: discipline and judgment are equally crucial.

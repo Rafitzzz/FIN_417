@@ -1,4 +1,17 @@
 \babel@toc {english}{}\relax 
 \contentsline {section}{\numberline {1}Basic notions}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Financial risk and regulation}{3}{subsection.1.1}%
-\contentsline {section}{\numberline {2}Standard risk measures and methods}{5}{section.2}%
+\contentsline {paragraph}{Ancient roots}{4}{section*.4}%
+\contentsline {paragraph}{Modern leap: Markowitz and mean--variance (\(\sim \)1952).}{5}{section*.5}%
+\contentsline {paragraph}{(1) Determining risk capital (``the cushion'').}{6}{section*.8}%
+\contentsline {paragraph}{(2) Management tool (limits and incentives).}{6}{section*.9}%
+\contentsline {paragraph}{(3) Pricing insurance risk (reserve vs premium risk).}{6}{section*.10}%
+\contentsline {paragraph}{Regulatory view (acceptability via capital add-ons).}{6}{section*.11}%
+\contentsline {paragraph}{Basel I (1988).}{7}{section*.15}%
+\contentsline {paragraph}{Basel II (2004).}{8}{section*.16}%
+\contentsline {paragraph}{Basel III (2010, post-2008 crisis).}{8}{section*.17}%
+\contentsline {paragraph}{(Ongoing) Basel IV.}{8}{section*.18}%
+\contentsline {paragraph}{Takeaway.}{8}{section*.19}%
+\contentsline {paragraph}{QRM can:}{9}{section*.22}%
+\contentsline {paragraph}{QRM cannot:}{9}{section*.23}%
+\contentsline {paragraph}{Conclusion.}{9}{section*.24}%
+\contentsline {section}{\numberline {2}Standard risk measures and methods}{10}{section.2}%
